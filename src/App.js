@@ -13,45 +13,51 @@ const rawData = [
   Data3
 ];
 
-
-const mainData1 = rawData[0].map((items) => items);
-const mainData2 = rawData[1].map((items) => items);
-const mainData3 = rawData[2].map((items) => items);
-
 let store = {};
 
-store['mainData1'] =  Object.assign(store, mainData1);
-store['mainData2'] =  Object.assign(store, mainData2);
-store['mainData3'] =  Object.assign(store, mainData3);
+const mainData1 = rawData[0].map((items, key) => store[key] = parseInt(items.value, 10));         
+const mainData2 = rawData[1].map((items, key) => store[key] = store[key] + parseInt(items.value));
+const mainData3 = rawData[2].map((items, key) => store[key] = store[key] + parseInt(items.value));
+
+
+console.log(store);
+// store['mainData1'] =  Object.assign(store, mainData1);
+// store['mainData2'] =  Object.assign(store, mainData2);
+// store['mainData3'] =  Object.assign(store, mainData3);
 
 var resultObject = rawData.reduce(function(result, currentObject) {
+  // store all values with name
+  
   for(var key in currentObject) {
     
       // copy merge data
       if (currentObject.hasOwnProperty(key)) {
-          result[key] = currentObject[key];
+        
+        result[key] = currentObject[key];
       }
-      // find total value
-      if (currentObject[key].hasOwnProperty('value')) {
-        result[key]['value'] = parseInt(result[key]['value']) + parseInt(currentObject[key].value);
-    }
+      // if(!store[currentObject[key].item_text]){
+      //   console.log('Where is the value: ',store[currentObject[key].item_text] = parseFloat(currentObject[key].value,store[currentObject[key].value], 10));
+      // }
+      // if(store[currentObject[key].item_text]) {
+      //   store[currentObject[key].item_text] += parseFloat(currentObject[key].value, 10)
+      // }
+      // console.log(store);
 
   }
   return result;
 }, {});
 
-console.log('total all data: ',resultObject);
+// console.log('total all data: ',resultObject);
 
 const arrObj = Object.values(resultObject);
 
-console.log(arrObj)
 
-// console.log(mainData1)
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <body className="App">
+        <div className="App">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <div className="main-list">
          
@@ -66,13 +72,13 @@ class App extends Component {
                       {/* {dataDetails['item_code']}&nbsp; */}
                       <p><strong>Code : </strong> {dataDetails['item_code']}</p>
                       <p><strong>Children : </strong> {dataDetails['children'].length}</p>
-                      <p><strong>Total value: </strong> {dataDetails['value']}</p>
+                      <p><strong>Total value: </strong> {store[index]}</p>
                     </div>                      
                   }</div>
           })}
           </div>
           
-        </body>
+        </div>
           
       </div>
     );
