@@ -1,3 +1,16 @@
+# George Colón's Full-Stack Practical Exam
+To see the live site use this url: [Ernst and Young: test](https://xenodochial-neumann-39323d.netlify.com/ "Ernst and Young: Test")
+
+### Installing
+
+If you are cloning this repo and wanted to locally host on your mechine please see instuctions below.
+
+* After cloning this repo, open a new terminal window then ```cd``` to where you cloned this project, then write ```npm install``` to add the dependencies.
+* Once the ```node_modules``` is downloaded write ```cd ..```, then write ```npm start```. 
+
+### Built With
+* React, CSS, JSX, Netlify, GitHub, NodeJS, NPM, JSON
+
 # Practical Exam
 
 We'd like to give you a real-world exercise. Please provide us with the code solution you come up with. If you don't have a final working solution, please show whatever solution you did come up with, what roadblocks there were, etc. The journey can be as important as the destination!
@@ -27,3 +40,4 @@ Not required, but if you can produce a .json file containing the output of the m
 If you want to dress up the results in a visually pleasing format, feel free! This could be HTML, JSX, (S)CSS, etc.
 
 ##### This test is the sole property of EY and may not be shared without EY's express consent. &copy; 2018 All rights reserved.
+    
